@@ -17,4 +17,29 @@ class Stack
     end
 end
 
+class Queue
+    def initialize
+        @queue = []
+    end
+
+    def enqeue(el)
+        @queue.unshift(el)
+    end
+
+    def dequeue
+        @queue.pop
+        @queue
+    end
+
+    def peek
+        @queue.last
+    end
+end
+
+class Map
+
+
+
+end
+
     
