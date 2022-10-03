@@ -5,17 +5,18 @@ class GraphNode
         @neighbors = []
     end
 
-    def bfs(starting_node, target_value)
+    def bfs(starting_node, target_value, visted = Set.new())
         nodes = [self]
         until nodes.empty?
             node = nodes.pop
+            visited.add?(node.val)
 
             return node if node == target_value
             nodes += neighbors
         end
         nil
     end
-    
+
 a = GraphNode.new('a')
 b = GraphNode.new('b')
 c = GraphNode.new('c')
@@ -27,5 +28,5 @@ c.neighbors = [b, d]
 e.neighbors = [a]
 f.neighbors = [e]
 
-bfs(a, "b")
+self.bfs(a, "b")
 end
