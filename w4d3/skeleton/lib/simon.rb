@@ -54,6 +54,9 @@ class Simon
   end
 
   def reset_game
+    self.sequence_length = 1
+    self.game_over = false
+    self.seq = []
 
   end
 end
