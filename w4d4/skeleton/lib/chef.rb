@@ -1,3 +1,4 @@
+require 'rspec'
 class Chef
   attr_reader :name
 
