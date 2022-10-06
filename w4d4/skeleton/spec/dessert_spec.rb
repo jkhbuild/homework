@@ -7,8 +7,8 @@ Instructions: implement all of the pending specs (the `it` statements without bl
 
 describe Dessert do
   let(:chef) { double("chef") }
-  subject(:brownie) { Dessert.new("brownie", 20, chef)}
-  # let(:brownie) {Dessert.new("brownie", 20, chef)}
+  # subject(:brownie) { Dessert.new("brownie", 20, chef)}
+  let(:brownie) { Dessert.new("brownie", 20, chef) }
 
   describe "#initialize" do
     it "sets a type" do
@@ -24,18 +24,23 @@ describe Dessert do
     end
 
     it "raises an argument error when given a non-integer quantity" do
-      subject(:brownie) {Dessert.new("brownie", abc, "me")}
-      it 'sets the quantity equal to a non-integer value'
+      subject(:brownie) {Dessert.new("brownie", "abc", chef)}
         expect(brownie.type).to raise_error(ArgumentError)
     end
   end
 
   describe "#add_ingredient" do
-    it "adds an ingredient to the ingredients array"
+    it "adds an ingredient to the ingredients array" do
+      brownie.add_ingredient("nuts")
+      expect(brownie.ingredients).to include("nuts")
+    expect
+    end
   end
 
   describe "#mix!" do
-    it "shuffles the ingredient array"
+    it "shuffles the ingredient array" do
+    ingredients = {1=>"chocolate", 2=>"eggs", 3=>"baking powder", 4=>"sugar" }
+      ingredients[rand(1..4)]
   end
 
   describe "#eat" do
