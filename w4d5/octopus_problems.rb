@@ -19,8 +19,20 @@ def dominant_octopus(arr_fish)
     pivot = arr_fish.first
     left = arr_fish[1..-1].select { |fish| fish.length < pivot.length }
     right = arr_fish[1..-1].select { |fish| fish.length > pivot.length}
-    debugger
+    # debugger
     (dominant_octopus(left) + [pivot] + dominant_octopus(right)).last
 end
- p dominant_octopus(arr_fish)
+#  p dominant_octopus(arr_fish)
+
+ def clever_octopus(arr_fish)
+    longest = arr_fish.first
+    arr_fish.each do |fish| 
+        if fish.length > longest.length
+            longest = fish
+        end
+    end
+    longest
+ end
+ p clever_octopus(arr_fish)
+    
 
