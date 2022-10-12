@@ -26,6 +26,21 @@ class Play
       plays
     WHERE
       title = ?
+    SQL
+    return nil unless play.length > 0
+    Play.new(play.first)
+  end
+
+  def self.find_by_playwright
+    SELECT
+      *
+    FROM
+      plays
+    WHERE
+      playwright_id = ?
+    SQL
+
+    plays.map { |play| Play.new(play) }
   end
 
   def initialize(options)
@@ -64,6 +79,19 @@ class Playwright
   def self.all
     data = PlayDBConnection.instance.execute("SELECT * FROM playwright")
     data.map { |datum| Playwright.new(datum) }
+  end
+
+  def self.find_by_name
+    SELECT
+      *
+    FROM
+      playwrights
+    WHERE
+      name = ?
+    SQL
+    return nil unless playwright.length > 0
+    Playwrights.new(playwrights.first)
+
   end
 
   def initialize(options)
